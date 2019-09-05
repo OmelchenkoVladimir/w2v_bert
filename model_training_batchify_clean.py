@@ -57,6 +57,10 @@ else:
     path_to_valid = sys.argv[2]
     model_name = sys.argv[3]
 
+tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased', do_lower_case=False)
+
+writer = SummaryWriter()
+
 batch_size = 32
 train = DefinitionsDataset(path_to_train, tokenizer)
 valid = DefinitionsDataset(path_to_valid, tokenizer)
